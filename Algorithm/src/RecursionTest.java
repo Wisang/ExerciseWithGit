@@ -14,10 +14,30 @@ public class RecursionTest {
 		assertEquals(5, fibonacci(5));
 		assertEquals(8, fibonacci(6));
 	}
-
+	
 	private int fibonacci(int n) {
 		if(n==1 || n==2)
 			return 1;
-		return fibonacci(n-1) + fibonacci(n-2);
+		else
+			return fibonacci(n-1) + fibonacci(n-2);
+	}
+
+	@Test
+	public void fasterFibonacci() throws Exception {
+		assertEquals(8, fibonacciFast(6));
+		assertEquals(100, fibonacciFast(50));
+	}
+
+	int[] memo = new int[100];
+	
+	private int fibonacciFast(int n) {
+		
+		if(memo[n]>0)
+			return memo[n];
+		
+		if(n==1 || n==2)
+			return 1;
+
+		return memo[n] = fibonacciFast(n-1) + fibonacciFast(n-2); 
 	}
 }
