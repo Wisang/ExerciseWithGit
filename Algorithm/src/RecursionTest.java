@@ -28,15 +28,15 @@ public class RecursionTest {
 		assertEquals(100, fibonacciFast(50));
 	}
 
-	int[] memo = new int[100];
+	long[] memo = new long[200];
 	
-	private int fibonacciFast(int n) {
+	private long fibonacciFast(int n) {
 		
 		if(memo[n]>0)
 			return memo[n];
 		
 		if(n==1 || n==2)
-			return 1;
+			return memo[n] = 1;
 
 		return memo[n] = fibonacciFast(n-1) + fibonacciFast(n-2); 
 	}
