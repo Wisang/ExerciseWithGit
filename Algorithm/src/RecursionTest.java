@@ -2,7 +2,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
 public class RecursionTest {
 
 	@Test
@@ -18,14 +17,13 @@ public class RecursionTest {
 	private int fibonacci(int n) {
 		if(n==1 || n==2)
 			return 1;
-		else
-			return fibonacci(n-1) + fibonacci(n-2);
+		return fibonacci(n-1) + fibonacci(n-2);
 	}
-
+	
 	@Test
 	public void fasterFibonacci() throws Exception {
 		assertEquals(8, fibonacciFast(6));
-		assertEquals(100, fibonacciFast(50));
+		assertEquals(12586269025L, fibonacciFast(50));
 	}
 
 	long[] memo = new long[200];
