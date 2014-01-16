@@ -22,7 +22,7 @@ public class RecursionTest {
 	
 	@Test
 	public void fasterFibonacci() throws Exception {
-		assertEquals(8, fibonacciFast(6));
+		assertEquals(7, fibonacciFast(6));
 		assertEquals(12586269025L, fibonacciFast(50));
 	}
 
