@@ -1,10 +1,16 @@
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 
 public class RecursionTest {
+	@Test
+	public void firstTest() throws Exception {
+		assertTrue(false);
+	}
 	
+	/*
 	@Test
 	public void fibonacciTest() {
 		assertEquals(1, fibonacci(1));
@@ -39,4 +45,5 @@ public class RecursionTest {
 
 		return memo[n] = fibonacciFast(n-1) + fibonacciFast(n-2); 
 	}
+	*/
 }
