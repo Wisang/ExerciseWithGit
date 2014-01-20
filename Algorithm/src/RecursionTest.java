@@ -5,10 +5,11 @@ import org.junit.Test;
 
 public class RecursionTest {
 
-//	public static void main(String[] args) {
-//		System.out.println("Jenkins Works!");
-//	}
+	public static void main(String[] args) {
+		System.out.println("Jenkins Works!");
+	}
 	
+	/*
 	@Test
 	public void fibonacciTest() {
 		assertEquals(1, fibonacci(1));
@@ -43,4 +44,5 @@ public class RecursionTest {
 
 		return memo[n] = fibonacciFast(n-1) + fibonacciFast(n-2); 
 	}
+	*/
 }
