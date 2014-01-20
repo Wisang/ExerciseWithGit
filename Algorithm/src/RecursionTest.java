@@ -4,10 +4,6 @@ import org.junit.Test;
 
 
 public class RecursionTest {
-
-//	public static void main(String[] args) {
-//		System.out.println("Jenkins Works!");
-//	}
 	
 	@Test
 	public void fibonacciTest() {
@@ -27,7 +23,7 @@ public class RecursionTest {
 	
 	@Test
 	public void fasterFibonacci() throws Exception {
-		assertEquals(7, fibonacciFast(6));
+		assertEquals(8, fibonacciFast(6));
 		assertEquals(12586269025L, fibonacciFast(50));
 	}
 
