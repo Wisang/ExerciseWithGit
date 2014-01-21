@@ -6,8 +6,11 @@ import org.junit.Test;
 public class CoinProblemTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void fibonacciLoopTest() {
+		assertEquals(1, fibonacciLoop(1));
 	}
 
+	private long fibonacciLoop(int n) {
+		return 0;
+	}
 }
