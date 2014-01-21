@@ -5,29 +5,18 @@ import org.junit.Test;
 public class CoinProblemTest {
 
 	@Test
-	public void fibonacciLoopTest() {
-		assertEquals(1, fibonacciLoop(1));
-		assertEquals(1, fibonacciLoop(2));
-		assertEquals(2, fibonacciLoop(3));
-		assertEquals(3, fibonacciLoop(4));
-		assertEquals(5, fibonacciLoop(5));
+	public void numberOfPaymentTest() throws Exception {
+		int[] coins = {1000, 100, 10};
+		assertEquals(12, numberOfPaymentLoop(1000, coins));
 	}
 
-	private long fibonacciLoop(int n) {
-		if (n == 1 || n == 2)
-			return 1;
-
-		long first = 1;
-		long second = 1;
-		long result = 0;
-
-		for(int i=3; i<=n; i++) {
-			result = first + second;
-
-			first = second;
-			second = result;
-		}
-
-		return result;
+	private int numberOfPaymentLoop(int money, int[] coins) {
+		int count = 0;
+		for(int i=money; i>=0; i -= coins[0])
+			for(int j=i; j>=0; j -= coins[1])
+				if(0 == j % coins[2])
+					count++;
+		
+		return count;
 	}
 }
