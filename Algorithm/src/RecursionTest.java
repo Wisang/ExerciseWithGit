@@ -1,16 +1,8 @@
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 
 public class RecursionTest {
-//	@Test
-//	public void firstTest() throws Exception {
-//		assertTrue(true);
-//	}
-	
-	
 	@Test
 	public void fibonacciTest() {
 		assertEquals(1, fibonacci(1));
