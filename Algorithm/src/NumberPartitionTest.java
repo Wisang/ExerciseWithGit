@@ -15,8 +15,25 @@ public class NumberPartitionTest {
 	}
 
 	private int numberOfPartition(int number) {
-		if(5 == number)
-			return 7;
-		return 3;
+		int[] numbers = new int[number-1];
+		
+		for(int i=1; i<number; i++)
+			numbers[i-1] = i;
+		
+		return 1 + partition(number, numbers, number-1);
+	}
+
+	private int partition(int number, int[] numbers, int n) {
+		if(1==n)
+			return 1;
+		
+		int numberOfWays = number / numbers[n-1];
+		
+		int count = 0;
+		
+		for(int i=0; i<=numberOfWays; i++)
+			count += partition(number - i*numbers[n-1], numbers, n-1);
+		
+		return count;
 	}
 }
