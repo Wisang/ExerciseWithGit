@@ -1,8 +1,4 @@
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 
 
@@ -12,6 +8,21 @@ public class NumberPartitionTest {
 	public void partitionTest() throws Exception {
 		assertEquals(3, numberOfPartition(3));
 		assertEquals(7, numberOfPartition(5));
+	}
+	
+	@Test
+	public void generalPartitionTest() throws Exception {
+		assertEquals(3, generalPartition(5,2));
+		assertEquals(5, generalPartition(5,3));
+	}
+
+	private int generalPartition(int number, int set) {
+		int[] numbers = new int[set];
+		
+		for(int i=1; i<=set; i++)
+			numbers[i-1] = i;
+		
+		return partition(number, numbers, set);
 	}
 
 	private int numberOfPartition(int number) {
