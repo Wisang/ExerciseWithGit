@@ -29,6 +29,8 @@ public class CoinProblemTest {
 			if(0 == money % coins[0]) {
 				int numberOfSmallestCoin = money / coins[0];
 				
+				System.out.println(arr_len);
+				
 				for(int k=0; k < numberOfSmallestCoin; k++)
 					arr[arr_len+k] = coins[0];
 				
@@ -45,9 +47,9 @@ public class CoinProblemTest {
 		
 		for(int i=0; i<= numberOfWays; i++) {
 			int j;
-			for(j=0; j<=i; j++)
+			for(j=0; j<i; j++)
 				arr[j] = coins[n-1];
-			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, j+1);
+			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, i);
 		}
 		
 		return count;
