@@ -19,25 +19,31 @@ public class NumberPartitionTest {
 	public void mathPartitionTest() throws Exception {
 		assertEquals(3, recurrenceFormulaPartition(5, 2));
 		assertEquals(5, recurrenceFormulaPartition(5, 3));
+		assertEquals(7, recurrenceFormulaPartition(5, 5));
+		assertEquals(154280588, recurrenceFormulaPartition(200, 200));
 	}
+	
+	int[][] memo = new int[300][300];
 
 	private int recurrenceFormulaPartition(int n, int m) {
+		if(memo[n][m] != 0)
+			return memo[n][m];
 		
 		if(1 == m)
-			return 1;
+			return memo[n][m] = 1;
 		
 		if(0 == n || 1 == n)
-			return 1;
+			return memo[n][m] = 1;
 		
 		if(n < m)
 			m = n;
 		
 		int count = 0;
 
-		for (int i = 1; i <= m; i++)
+		for (int i = 1; i <= m; i++) 
 			count += recurrenceFormulaPartition(n - i, i);
 
-		return count;
+		return memo[n][m] = count;
 	}
 
 	private int generalPartition(int number, int set) {
