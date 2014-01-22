@@ -22,14 +22,11 @@ public class NumberPartitionTest {
 	}
 
 	private int recurrenceFormulaPartition(int n, int m) {
-		// partition(5,2) = partition(4,1) + partition(3,2)
-		// = (3,1) + (2,1) + (1,2)
-		// = (2,1) + (1,1) + (1,1)
-		// = (1,1) + (0,1) + (0,1)
-		// = (0,1) + 1 + 1
-		// = 1 + 1 + 1 =3
 		
-		if (0 == n)
+		if(1 == m)
+			return 1;
+		
+		if(0 == n || 1 == n)
 			return 1;
 		
 		if(n < m)
