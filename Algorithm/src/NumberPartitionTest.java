@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+import static util.PrintUtil.printArr;
 import org.junit.Test;
 
 public class NumberPartitionTest {
@@ -23,16 +24,39 @@ public class NumberPartitionTest {
 		assertEquals(154280588, recurrenceFormulaPartition(200, 200));
 	}
 	
+	@Test
+	public void partitionPrintTest() throws Exception {
+		int[] arr = new int[10];
+		assertEquals(7, partitionPrint(5, 5, arr, 0));
+	}
+	
+	private int partitionPrint(int n, int m, int[] arr, int arr_len) {
+		
+		if(0 == n) {
+			printArr(arr, arr_len);
+			return 1;
+		}
+		
+		if(n < m)
+			m = n;
+		
+		int count = 0;
+
+		for (int i = 1; i <= m; i++) {
+			arr[arr_len] = i;
+			count += partitionPrint(n - i, i, arr, arr_len + 1);
+		}
+		
+		return count;
+	}
+
 	int[][] memo = new int[300][300];
 
 	private int recurrenceFormulaPartition(int n, int m) {
 		if(memo[n][m] != 0)
 			return memo[n][m];
 		
-		if(1 == m)
-			return memo[n][m] = 1;
-		
-		if(0 == n || 1 == n)
+		if(0 == n)
 			return memo[n][m] = 1;
 		
 		if(n < m)
