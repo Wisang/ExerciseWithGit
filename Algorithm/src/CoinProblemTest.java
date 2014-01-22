@@ -19,7 +19,7 @@ public class CoinProblemTest {
 	
 	@Test
 	public void paymentsPrint() throws Exception {
-		int[] coins = {1000, 500, 100};
+		int[] coins = {100, 500, 1000};
 		int[] arr = new int[20];
 		assertEquals(4, paymentPrint(1000, coins, 3, arr, 0));
 	}
@@ -27,6 +27,7 @@ public class CoinProblemTest {
 	private int paymentPrint(int money, int[] coins, int n, int[] arr, int arr_len) {
 		if(1 == n) {
 			if(0 == money % coins[0]) {
+				System.out.println("printing");
 				printArr(arr, arr_len);
 				return 1;
 			}
