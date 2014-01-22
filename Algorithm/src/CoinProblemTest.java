@@ -24,17 +24,20 @@ public class CoinProblemTest {
 		assertEquals(10, paymentPrint(1000, coins, 3, arr, 0));
 	}
 
+	int head = 0;
+	
 	private int paymentPrint(int money, int[] coins, int n, int[] arr, int arr_len) {
+		
 		if(1 == n) {
 			if(0 == money % coins[0]) {
 				int numberOfSmallestCoin = money / coins[0];
-				
-				System.out.println(arr_len);
 				
 				for(int k=0; k < numberOfSmallestCoin; k++)
 					arr[arr_len+k] = coins[0];
 				
 				printArr(arr, arr_len+numberOfSmallestCoin);
+				
+				head = 0;
 
 				return 1;
 			}
@@ -49,7 +52,8 @@ public class CoinProblemTest {
 			int j;
 			for(j=0; j<i; j++)
 				arr[j] = coins[n-1];
-			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, i);
+			head += i;
+			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, head);
 		}
 		
 		return count;
