@@ -26,12 +26,7 @@ public class NumberPartitionTest {
 	}
 
 	private int numberOfPartition(int number) {
-		int[] numbers = new int[number-1];
-		
-		for(int i=1; i<number; i++)
-			numbers[i-1] = i;
-		
-		return 1 + partition(number, numbers, number-1);
+		return generalPartition(number, number);
 	}
 
 	private int partition(int number, int[] numbers, int n) {
