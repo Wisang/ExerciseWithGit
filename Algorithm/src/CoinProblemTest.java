@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+import static util.PrintUtil.printArr;
 
 import org.junit.Test;
 
@@ -14,6 +15,35 @@ public class CoinProblemTest {
 	public void numberOfPaymentRecursionTest() throws Exception {
 		int[] coins = {1,2,5,10,20,50};
 		assertEquals(4562, numberOfPaymentRecursion(100, coins, 6));
+	}
+	
+	@Test
+	public void paymentsPrint() throws Exception {
+		int[] coins = {100, 500, 1000};
+		int[] arr = new int[20];
+		assertEquals(4, paymentPrint(1000, coins, 3, arr, 0));
+	}
+
+	private int paymentPrint(int money, int[] coins, int n, int[] arr, int arr_len) {
+		if(1 == n) {
+			if(0 == money % coins[0]) {
+				printArr(arr, arr_len);
+				return 1;
+			}
+			return 0;
+		}
+		
+		int numberOfWays = money / coins[n-1];
+		
+		int count = 0;
+		
+		for(int i=0; i<= numberOfWays; i++) {
+			for(int j=0; j<i; j++)
+				arr[j] = coins[n-1];
+			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, arr_len+i);
+		}
+		
+		return count;
 	}
 
 	private int numberOfPaymentRecursion(int money, int[] coins, int n) {
