@@ -19,7 +19,7 @@ public class CoinProblemTest {
 	
 	@Test
 	public void paymentsPrint() throws Exception {
-		int[] coins = {100, 500, 1000};
+		int[] coins = {1000, 500, 100};
 		int[] arr = new int[20];
 		assertEquals(4, paymentPrint(1000, coins, 3, arr, 0));
 	}
@@ -39,7 +39,7 @@ public class CoinProblemTest {
 		
 		for(int i=0; i<= numberOfWays; i++) {
 			for(int j=0; j<i; j++)
-				arr[j] = coins[n-1];
+				arr[arr_len + j] = coins[n-1];
 			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, arr_len+i);
 		}
 		
