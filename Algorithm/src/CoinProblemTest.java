@@ -19,15 +19,16 @@ public class CoinProblemTest {
 	
 	@Test
 	public void paymentsPrint() throws Exception {
-		int[] coins = {100, 500, 1000};
-		int[] arr = new int[20];
-		assertEquals(4, paymentPrint(1000, coins, 3, arr, 0));
+		int[] coins = {100, 500};
+		int[] arr = new int[100];
+		assertEquals(3, paymentPrint(1000, coins, 2, arr, 0));
 	}
 
 	private int paymentPrint(int money, int[] coins, int n, int[] arr, int arr_len) {
 		if(1 == n) {
 			if(0 == money % coins[0]) {
-				System.out.println("printing");
+				for(int i=0; i<money/coins[0]; i++)
+					coins[arr_len+i+1] = coins[0];
 				printArr(arr, arr_len);
 				return 1;
 			}
@@ -39,9 +40,10 @@ public class CoinProblemTest {
 		int count = 0;
 		
 		for(int i=0; i<= numberOfWays; i++) {
-			for(int j=0; j<i; j++)
-				arr[arr_len + j] = coins[n-1];
-			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, arr_len+i);
+//			int j;
+//			for(j=0; j<numberOfWays; j++)
+				arr[i] = coins[n-1];
+			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, i);
 		}
 		
 		return count;
