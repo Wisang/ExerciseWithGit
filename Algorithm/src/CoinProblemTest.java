@@ -23,6 +23,13 @@ public class CoinProblemTest {
 		int[] arr = new int[100];
 		assertEquals(10, paymentPrint(1000, coins, 3, arr, 0));
 	}
+	
+	@Test
+	public void paymentsPrint4CoinsCase() throws Exception {
+		int[] coins = {100, 200, 500, 1000};
+		int[] arr = new int[100];
+		assertEquals(11, paymentPrint(1000, coins, 4, arr, 0));
+	}
 
 	private int paymentPrint(int money, int[] coins, int n, int[] arr, int arr_len) {
 		
