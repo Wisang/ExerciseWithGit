@@ -24,8 +24,6 @@ public class CoinProblemTest {
 		assertEquals(10, paymentPrint(1000, coins, 3, arr, 0));
 	}
 
-	int head = 0;
-	
 	private int paymentPrint(int money, int[] coins, int n, int[] arr, int arr_len) {
 		
 		if(1 == n) {
@@ -37,8 +35,6 @@ public class CoinProblemTest {
 				
 				printArr(arr, arr_len+numberOfSmallestCoin);
 				
-				head = 0;
-
 				return 1;
 			}
 			return 0;
@@ -49,11 +45,11 @@ public class CoinProblemTest {
 		int count = 0;
 		
 		for(int i=0; i<= numberOfWays; i++) {
-			int j;
-			for(j=0; j<i; j++)
-				arr[j] = coins[n-1];
-			head += i;
-			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, head);
+			arr[arr_len] = coins[n-1];
+			
+			if(i>0) arr_len++;
+			
+			count  += paymentPrint(money - i * coins[n-1], coins, n-1, arr, arr_len);
 		}
 		
 		return count;
