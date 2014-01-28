@@ -63,9 +63,8 @@ public class NumberPartitionTest {
 		int count = 0;
 		
 		for(int i=1; i<=m; i++) {
-			if(1==i)
-				arr[arr_len++] = m;
-			count += partitionPrint(n-i, i, arr, arr_len);
+			arr[arr_len] = i;
+			count += partitionPrint(n-i, i, arr, arr_len+1);
 		}
 		
 		return count;
