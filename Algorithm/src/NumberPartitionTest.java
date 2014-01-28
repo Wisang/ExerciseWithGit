@@ -24,6 +24,27 @@ public class NumberPartitionTest {
 		assertEquals(154280588, recurrenceFormulaPartition(200, 200));
 	}
 	
+	int[][] memo = new int[300][300];
+	
+	private int recurrenceFormulaPartition(int n, int m) {
+		
+		if(memo[n][m] > 0)
+			return memo[n][m];
+		
+		if(0 == n)
+			return memo[n][m] = 1;
+		
+		if(m>n)
+			m = n;
+		
+		int count = 0;
+		
+		for(int i=1; i<=m; i++)
+			count += recurrenceFormulaPartition(n-i, i); // n-(n-i) -> i
+		
+		return memo[n][m] = count;
+	}
+
 	@Test
 	public void partitionPrintTest() throws Exception {
 		int[] arr = new int[10];
@@ -31,43 +52,23 @@ public class NumberPartitionTest {
 	}
 	
 	private int partitionPrint(int n, int m, int[] arr, int arr_len) {
-		
 		if(0 == n) {
 			printArr(arr, arr_len);
 			return 1;
 		}
 		
-		if(n < m)
+		if(m>n)
 			m = n;
 		
 		int count = 0;
-
-		for (int i = 1; i <= m; i++) {
-			arr[arr_len] = i;
-			count += partitionPrint(n - i, i, arr, arr_len + 1);
+		
+		for(int i=1; i<=m; i++) {
+			if(1==i)
+				arr[arr_len++] = m;
+			count += partitionPrint(n-i, i, arr, arr_len);
 		}
 		
 		return count;
-	}
-
-	int[][] memo = new int[300][300];
-
-	private int recurrenceFormulaPartition(int n, int m) {
-		if(memo[n][m] != 0)
-			return memo[n][m];
-		
-		if(0 == n)
-			return memo[n][m] = 1;
-		
-		if(n < m)
-			m = n;
-		
-		int count = 0;
-
-		for (int i = 1; i <= m; i++) 
-			count += recurrenceFormulaPartition(n - i, i);
-
-		return memo[n][m] = count;
 	}
 
 	private int generalPartition(int number, int set) {
