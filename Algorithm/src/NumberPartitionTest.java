@@ -3,6 +3,32 @@ import static util.PrintUtil.printArr;
 import org.junit.Test;
 
 public class NumberPartitionTest {
+	
+	@Test
+	public void printPartionWithOrderTest() throws Exception {
+		int[] arr = new int[10];
+		
+		assertEquals(4, printPartitionWithOrder(4, arr , 0));
+	}
+	
+	private int printPartitionWithOrder(int n, int[] arr, int arr_len) {
+		return 3;
+	}
+	
+	@Test
+	public void partitionWithOrderTest() throws Exception {
+		assertEquals(4, partitionWithOrder(4));
+	}
+
+	private int partitionWithOrder(int n) {
+		if (n == 1)
+			return 1;
+
+		int count = 0;
+		for (int i = 1; i <= n-1; i++)
+			count += partitionWithOrder(n - i);
+		return count;
+	}
 
 	@Test
 	public void partitionTest() throws Exception {
@@ -23,25 +49,25 @@ public class NumberPartitionTest {
 		assertEquals(7, recurrenceFormulaPartition(5, 5));
 		assertEquals(154280588, recurrenceFormulaPartition(200, 200));
 	}
-	
+
 	int[][] memo = new int[300][300];
-	
+
 	private int recurrenceFormulaPartition(int n, int m) {
-		
-		if(memo[n][m] > 0)
+
+		if (memo[n][m] > 0)
 			return memo[n][m];
-		
-		if(0 == n)
+
+		if (0 == n)
 			return memo[n][m] = 1;
-		
-		if(m>n)
+
+		if (m > n)
 			m = n;
-		
+
 		int count = 0;
-		
-		for(int i=1; i<=m; i++)
-			count += recurrenceFormulaPartition(n-i, i); // n-(n-i) -> i
-		
+
+		for (int i = 1; i <= m; i++)
+			count += recurrenceFormulaPartition(n - i, i); // n-(n-i) -> i
+
 		return memo[n][m] = count;
 	}
 
@@ -50,23 +76,23 @@ public class NumberPartitionTest {
 		int[] arr = new int[10];
 		assertEquals(7, partitionPrint(5, 5, arr, 0));
 	}
-	
+
 	private int partitionPrint(int n, int m, int[] arr, int arr_len) {
-		if(0 == n) {
+		if (0 == n) {
 			printArr(arr, arr_len);
 			return 1;
 		}
-		
-		if(m>n)
+
+		if (m > n)
 			m = n;
-		
+
 		int count = 0;
-		
-		for(int i=1; i<=m; i++) {
+
+		for (int i = 1; i <= m; i++) {
 			arr[arr_len] = i;
-			count += partitionPrint(n-i, i, arr, arr_len+1);
+			count += partitionPrint(n - i, i, arr, arr_len + 1);
 		}
-		
+
 		return count;
 	}
 
