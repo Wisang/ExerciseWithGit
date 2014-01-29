@@ -1,9 +1,36 @@
 import static org.junit.Assert.*;
 import static util.PrintUtil.printArr;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 public class CoinProblemTest {
+	
+	@Test
+	public void coinProblemListVersion() throws Exception {
+		List<Integer> coins = new ArrayList<Integer>();
+		coins.add(100);
+		coins.add(500);
+		coins.add(1000);
+		assertEquals(4, numberOfPayments(1000, coins));
+	}
+
+	private int numberOfPayments(int money, List<Integer> coins) {
+		if(coins.size() == 1) {
+			if(0 == money % coins.get(0))
+				return 1;
+			return 0;
+		}
+		
+		int count = 0;
+
+		for(int i=0; i<=money/coins.get(coins.size()-1); i++)
+			count += numberOfPayments(money - i *coins.get(coins.size()-1), coins.subList(0, coins.size()-1));
+		
+		return count;
+	}
 
 	@Test
 	public void numberOfPaymentTest() throws Exception {
