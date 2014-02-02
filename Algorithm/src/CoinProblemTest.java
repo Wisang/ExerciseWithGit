@@ -1,13 +1,14 @@
-import static org.junit.Assert.*;
-import static util.PrintUtil.printArr;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+import static util.PrintUtil.printArr;
+
+
 public class CoinProblemTest {
-	
 	@Test
 	public void coinProblemListVersion() throws Exception {
 		List<Integer> coins = new ArrayList<Integer>();
@@ -25,9 +26,11 @@ public class CoinProblemTest {
 		}
 		
 		int count = 0;
+		
+		int biggestCoins = coins.remove(coins.size()-1);
 
-		for(int i=0; i<=money/coins.get(coins.size()-1); i++)
-			count += numberOfPayments(money - i *coins.get(coins.size()-1), coins.subList(0, coins.size()-1));
+		for(int i=0; i<=money/biggestCoins; i++)
+			count += numberOfPayments(money - i *biggestCoins, coins);
 		
 		return count;
 	}
