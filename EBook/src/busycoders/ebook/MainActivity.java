@@ -14,20 +14,24 @@ public class MainActivity extends ListActivity {
 			"ligula", "vitae", "arcu", "aliquet", "mollis", "etiam", "vel",
 			"erat", "placerat", "ante", "porttitor", "sodales", "pellentesque",
 			"augue", "purus" };
+	
+	private StringBuffer sb;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		setListAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, items));
+				android.R.layout.simple_list_item_multiple_choice, items));
 		selection = (TextView) findViewById(R.id.selection);
+		sb = new StringBuffer();
 
 	}
 
 	@Override
 	public void onListItemClick(ListView parent, View v, int position, long id) {
-		selection.setText(items[position]);
+		sb.append(items[position] + " ");
+		selection.setText(sb);
 	}
 
 }
