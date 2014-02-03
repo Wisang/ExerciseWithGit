@@ -1,16 +1,15 @@
 package busycoders.ebook;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.TextView;
-import android.widget.AdapterView;
 
-public class MainActivity extends Activity implements
-		AdapterView.OnItemClickListener {
-	private TextView selection;
+import android.os.Bundle;
+import android.app.ListActivity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MainActivity extends ListActivity {
 	private static final String[] items = { "lorem", "ipsum", "dolor", "sit",
 			"amet", "consectetuer", "adipiscing", "elit", "morbi", "vel",
 			"ligula", "vitae", "arcu", "aliquet", "mollis", "etiam", "vel",
@@ -20,19 +19,29 @@ public class MainActivity extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		selection = (TextView) findViewById(R.id.selection);
-
-		GridView grid = (GridView) findViewById(R.id.grid);
-		grid.setAdapter(new ArrayAdapter<String>(this,
-							R.layout.cell,
-							items));
-		grid.setOnItemClickListener(this);
+		setListAdapter(new IconicAdapter());
 	}
 
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-		selection.setText(items[position]);
-	}
+	class IconicAdapter extends ArrayAdapter<String> {
 
+		public IconicAdapter() {
+			super(MainActivity.this, R.layout.row, R.id.label, items);
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			View row = super.getView(position, convertView, parent);
+			ImageView icon = (ImageView) row.findViewById(R.id.icon);
+			if (items[position].length() > 4) {
+				icon.setImageResource(R.drawable.delete);
+			} else {
+				icon.setImageResource(R.drawable.ok);
+			}
+			TextView size = (TextView) row.findViewById(R.id.size);
+			size.setText(String.format(getString(R.string.size_template),
+					items[position].length()));
+			return (row);
+		}
+
+	}
 }
