@@ -42,6 +42,5 @@ public class MainActivity extends ListActivity {
 					items[position].length()));
 			return (row);
 		}
-
 	}
 }
