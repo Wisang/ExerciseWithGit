@@ -3,6 +3,6 @@
 
     <string name="app_name">TenThousandHour</string>
     <string name="action_settings">Settings</string>
-    <string name="remains">Remaining Hours</string>
+    <string name="header">Distance to Mastery</string>
 
 </resources>
