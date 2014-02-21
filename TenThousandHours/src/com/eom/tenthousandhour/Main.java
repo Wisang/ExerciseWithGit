@@ -30,6 +30,6 @@ public class Main extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		tv.setText("button pressed");
+		tv.setText("The remaining distanace is 10,000 hours far from now!");
 	}
 }
