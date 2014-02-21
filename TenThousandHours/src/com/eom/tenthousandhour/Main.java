@@ -6,11 +6,14 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Main extends Activity implements OnClickListener{
+	private static final int DISTANCE_TO_MASTERY = 10000;
 	Button btn;
 	TextView tv;
+	EditText hours;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class Main extends Activity implements OnClickListener{
 		btn.setOnClickListener(this);
 		
 		tv = (TextView)findViewById(R.id.remainingDistanceText);
+		hours = (EditText)findViewById(R.id.inputHour);
 	}
 
 	@Override
@@ -30,6 +34,10 @@ public class Main extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		tv.setText("The remaining distanace is 10,000 hours far from now!");
+		String inputHours = hours.getText().toString();
+		int hoursWorkedToday = Integer.parseInt(inputHours);
+		
+		String result = "The remaining distanace is " + (DISTANCE_TO_MASTERY-hoursWorkedToday) + " hours far from now!"; 
+		tv.setText(result);
 	}
 }
