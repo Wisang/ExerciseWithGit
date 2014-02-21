@@ -37,7 +37,7 @@ public class Main extends Activity implements OnClickListener{
 		String inputHours = hours.getText().toString();
 		int hoursWorkedToday = Integer.parseInt(inputHours);
 		
-		String result = "The remaining distanace is " + (DISTANCE_TO_MASTERY-hoursWorkedToday) + " hours far from now!"; 
+		String result = "You are now " + (DISTANCE_TO_MASTERY-hoursWorkedToday) + " hours far from the Mastery!"; 
 		tv.setText(result);
 	}
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TenThousandHour</string>
+    <string name="app_name">TenThousandHours</string>
     <string name="action_settings">Settings</string>
     <string name="header">Distance to Mastery</string>
     <string name="checkDistanceBtnCaption">Get the Distance to Mastery</string>
