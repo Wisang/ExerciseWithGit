@@ -12,8 +12,10 @@ import android.widget.TextView;
 public class Main extends Activity implements OnClickListener{
 	private static final int DISTANCE_TO_MASTERY = 10000;
 	Button btn;
-	TextView tv;
+	TextView showDistance;
 	EditText hours;
+	EditText workContents;
+	TextView showWorks;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +24,11 @@ public class Main extends Activity implements OnClickListener{
 		btn = (Button)findViewById(R.id.getDistanceBtn);
 		btn.setOnClickListener(this);
 		
-		tv = (TextView)findViewById(R.id.remainingDistanceText);
+		showDistance = (TextView)findViewById(R.id.remainingDistanceText);
 		hours = (EditText)findViewById(R.id.inputHour);
+		
+		workContents = (EditText)findViewById(R.id.inputContents);
+		showWorks = (TextView)findViewById(R.id.showContents);
 	}
 
 	@Override
@@ -38,6 +43,9 @@ public class Main extends Activity implements OnClickListener{
 		int hoursWorkedToday = Integer.parseInt(inputHours);
 		
 		String result = "You are now " + (DISTANCE_TO_MASTERY-hoursWorkedToday) + " hours away from the Mastery!"; 
-		tv.setText(result);
+		showDistance.setText(result);
+		
+		String works = "\n" + "Work Contents\n"+ workContents.getText().toString();
+		showWorks.setText(works);
 	}
 }

@@ -3,8 +3,8 @@
 
     <string name="app_name">TenThousandHours</string>
     <string name="action_settings">Settings</string>
-    <string name="header">Distance to Mastery</string>
-    <string name="checkDistanceBtnCaption">Get the Distance to Mastery</string>
+    <string name="checkDistanceBtnCaption">Get Distance to Mastery</string>
     <string name="inputRequest">input today\'s effort in hours</string>
+    <string name="inputContents">input what you have done today</string>
 
 </resources>
