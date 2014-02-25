@@ -38,7 +38,7 @@ public class DailySummary extends Activity implements OnClickListener{
         
         TextView tv = (TextView) findViewById(R.id.contentsSummary);
         
-        FitnessApplication applicationData = (FitnessApplication)getApplication();
+        TenKApplication applicationData = (TenKApplication)getApplication();
         
         Intent intent = getIntent();
         if (intent != null) {

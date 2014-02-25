@@ -73,7 +73,7 @@ public class DailyExerciseSummary extends Activity implements OnClickListener {
 		if (resultCode != Activity.RESULT_OK)
 			return;
 		
-		FitnessApplication applicationData = (FitnessApplication)getApplication();
+		TenKApplication applicationData = (TenKApplication)getApplication();
 		
 		if (requestCode == SQUAT) {
 			String name = data.getStringExtra("name");

@@ -126,7 +126,7 @@ public class GVCalendarActivity extends Activity implements
 		mThisMonthCalendar = Calendar.getInstance();
 		mThisMonthCalendar.set(Calendar.DAY_OF_MONTH, 1);
 
-		FitnessApplication applicationData = (FitnessApplication) getApplication();
+		TenKApplication applicationData = (TenKApplication) getApplication();
 
 		int selectedMonth = applicationData.getSelectedMonth();
 		mThisMonthCalendar.set(Calendar.MONTH, selectedMonth);
@@ -245,13 +245,14 @@ public class GVCalendarActivity extends Activity implements
 	public void onItemClick(AdapterView<?> parent, View v, int position,
 			long arg3) {
 
-		FitnessApplication applicationData = (FitnessApplication) getApplication();
+		TenKApplication applicationData = (TenKApplication) getApplication();
 		DayInfo day = (DayInfo) parent.getItemAtPosition(position);
 
 		int selectedMonth = applicationData.getSelectedMonth();
 		day.getDate().set(Calendar.MONTH, selectedMonth);
 
-		Intent in = new Intent(this, DailySummary.class);
+		Intent in = new Intent(this, InputEfforts.class);
+//		Intent in = new Intent(this, DailySummary.class);
 		// Intent in = new Intent(this, PhotoIntentActivity.class);
 		in.putExtra("date", day.getDate());
 		startActivityForResult(in, 0);
@@ -262,13 +263,13 @@ public class GVCalendarActivity extends Activity implements
 		switch (v.getId()) {
 		case R.id.gv_calendar_activity_b_last:
 			mThisMonthCalendar = getLastMonth(mThisMonthCalendar);
-			((FitnessApplication) getApplication())
+			((TenKApplication) getApplication())
 					.setSelectedMonth(mThisMonthCalendar.getTime().getMonth());
 			getCalendar(mThisMonthCalendar);
 			break;
 		case R.id.gv_calendar_activity_b_next:
 			mThisMonthCalendar = getNextMonth(mThisMonthCalendar);
-			((FitnessApplication) getApplication())
+			((TenKApplication) getApplication())
 					.setSelectedMonth(mThisMonthCalendar.getTime().getMonth());
 			getCalendar(mThisMonthCalendar);
 			break;

@@ -88,7 +88,7 @@ public class DailyMealSummary extends Activity implements OnClickListener{
 		if (resultCode != Activity.RESULT_OK)
 			return;
 		
-		FitnessApplication applicationData = (FitnessApplication)getApplication();
+		TenKApplication applicationData = (TenKApplication)getApplication();
 				
 		if (requestCode == BREAKFAST) {
 			String name = data.getStringExtra("name");

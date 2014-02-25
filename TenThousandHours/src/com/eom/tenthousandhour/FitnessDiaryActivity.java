@@ -49,7 +49,7 @@ public class FitnessDiaryActivity extends Activity implements OnClickListener {
 			startActivity(in) ;
 		}
 		else if (v == updateButton) {
-			DailyRecord dailyRecord = ((FitnessApplication)getApplication()).dailyRecord;
+			DailyRecord dailyRecord = ((TenKApplication)getApplication()).dailyRecord;
 			
 			Intent intent = getIntent();
 	        
@@ -66,7 +66,7 @@ public class FitnessDiaryActivity extends Activity implements OnClickListener {
 				e.printStackTrace();
 			}
 			
-			Map<Calendar, DailyRecord> mapData = ((FitnessApplication)getApplication()).getRecords();
+			Map<Calendar, DailyRecord> mapData = ((TenKApplication)getApplication()).getRecords();
 			
 			mapData.put(date, drCopied);
 			

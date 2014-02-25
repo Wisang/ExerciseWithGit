@@ -11,7 +11,7 @@ import android.app.Application;
 import android.database.Cursor;
 import android.util.Log;
 
-public class FitnessApplication extends Application{
+public class TenKApplication extends Application{
 	
 	Calendar date;
 	DailyRecord dailyRecord;

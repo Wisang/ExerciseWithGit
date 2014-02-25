@@ -114,7 +114,7 @@ public class CalendarAdapter extends BaseAdapter
 		
 		DayViewHolde dayViewHolder;
 		
-		FitnessApplication applicationObject = (FitnessApplication)mContext.getApplicationContext();
+		TenKApplication applicationObject = (TenKApplication)mContext.getApplicationContext();
 		
 		Map<Calendar, DailyRecord> mapData = applicationObject.getRecords();
 		
