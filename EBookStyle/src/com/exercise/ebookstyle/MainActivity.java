@@ -5,7 +5,6 @@ import java.util.Date;
 import android.os.Bundle;
 import android.view.View;
 import android.app.Activity;
-import android.view.Menu;
 import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnClickListener {

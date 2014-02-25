@@ -2,33 +2,21 @@ package com.eom.tenthousandhour;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class Main extends Activity implements OnClickListener{
-	private static final int DISTANCE_TO_MASTERY = 10000;
 	Button btn;
-	TextView showDistance;
-	EditText hours;
-	EditText workContents;
-	TextView showWorks;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		btn = (Button)findViewById(R.id.getDistanceBtn);
+		btn = (Button)findViewById(R.id.updateBtn);
 		btn.setOnClickListener(this);
-		
-		showDistance = (TextView)findViewById(R.id.remainingDistanceText);
-		hours = (EditText)findViewById(R.id.inputHour);
-		
-		workContents = (EditText)findViewById(R.id.inputContents);
-		showWorks = (TextView)findViewById(R.id.showContents);
 	}
 
 	@Override
@@ -39,13 +27,7 @@ public class Main extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		String inputHours = hours.getText().toString();
-		int hoursWorkedToday = Integer.parseInt(inputHours);
-		
-		String result = "You are now " + (DISTANCE_TO_MASTERY-hoursWorkedToday) + " hours away from the Mastery!"; 
-		showDistance.setText(result);
-		
-		String works = "\n" + "Work Contents\n"+ workContents.getText().toString();
-		showWorks.setText(works);
+		Intent i = new Intent(this, InputEfforts.class);
+		startActivity(i);
 	}
 }
