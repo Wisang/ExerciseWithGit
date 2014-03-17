@@ -5,19 +5,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -75,43 +71,43 @@ public class GVCalendarActivity extends Activity implements
 		// mGvCalendar.setAdapter(new ImageAdapter(this));
 	}
 
-	private class ImageAdapter extends BaseAdapter {
-		private Context mContext;
-
-		public ImageAdapter(Context c) {
-			mContext = c;
-		}
-
-		public int getCount() {
-			return mThumbIds.length;
-		}
-
-		public Object getItem(int position) {
-			return null;
-		}
-
-		public long getItemId(int position) {
-			return 0;
-		}
-
-		@Override
-		// create a new ImageView for each item referenced by the Adapter
-		public View getView(int position, View convertView, ViewGroup parent) {
-			ImageView imageView;
-			if (convertView == null) {
-				imageView = new ImageView(mContext);
-				imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-				imageView.setPadding(6, 6, 6, 6);
-			} else {
-				imageView = (ImageView) convertView;
-			}
-			imageView.setImageResource(R.drawable.globe);
-			return imageView;
-		}
-
-		private Integer[] mThumbIds = { R.drawable.globe, };
-	}
+//	private class ImageAdapter extends BaseAdapter {
+//		private Context mContext;
+//
+//		public ImageAdapter(Context c) {
+//			mContext = c;
+//		}
+//
+//		public int getCount() {
+//			return mThumbIds.length;
+//		}
+//
+//		public Object getItem(int position) {
+//			return null;
+//		}
+//
+//		public long getItemId(int position) {
+//			return 0;
+//		}
+//
+//		@Override
+//		// create a new ImageView for each item referenced by the Adapter
+//		public View getView(int position, View convertView, ViewGroup parent) {
+//			ImageView imageView;
+//			if (convertView == null) {
+//				imageView = new ImageView(mContext);
+//				imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+//				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//				imageView.setPadding(6, 6, 6, 6);
+//			} else {
+//				imageView = (ImageView) convertView;
+//			}
+//			imageView.setImageResource(R.drawable.globe);
+//			return imageView;
+//		}
+//
+//		private Integer[] mThumbIds = { R.drawable.globe, };
+//	}
 
 	/*
 	 * (non-Javadoc)
@@ -264,13 +260,13 @@ public class GVCalendarActivity extends Activity implements
 		case R.id.gv_calendar_activity_b_last:
 			mThisMonthCalendar = getLastMonth(mThisMonthCalendar);
 			((TenKApplication) getApplication())
-					.setSelectedMonth(mThisMonthCalendar.getTime().getMonth());
+					.setSelectedMonth(mThisMonthCalendar.get(Calendar.MONTH));
 			getCalendar(mThisMonthCalendar);
 			break;
 		case R.id.gv_calendar_activity_b_next:
 			mThisMonthCalendar = getNextMonth(mThisMonthCalendar);
 			((TenKApplication) getApplication())
-					.setSelectedMonth(mThisMonthCalendar.getTime().getMonth());
+					.setSelectedMonth(mThisMonthCalendar.get(Calendar.MONTH));
 			getCalendar(mThisMonthCalendar);
 			break;
 		}

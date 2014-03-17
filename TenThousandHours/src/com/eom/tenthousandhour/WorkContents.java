@@ -6,19 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Contents {
+public class WorkContents {
 	static final int VERSION = 2;
-	static final String DATABASE = "diary.db";
-	static final String TABLE = "food";
+	static final String DATABASE = "TTH.db";
+	static final String TABLE = "works";
 	
 	static final String C_DATE = "date";
-	static final String C_BREAKFAST = "breakfast";
-	static final String C_LUNCH = "lunch";
-	static final String C_DINNER = "dinner";
-	static final String C_EXTRAMEAL = "extrameal";
-	static final String C_SQUAT = "squat";
-	static final String C_DEADLIFT = "deadlift";
-	static final String C_BENCHPRESS = "benchpress";
+	static final String C_HOURS = "hours";
+	static final String C_WORK_CONTENTS = "workContents";	
 	
 	static final String GET_ALL_ORDER_BY = C_DATE + " DESC";
 		
@@ -31,13 +26,8 @@ public class Contents {
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL("create table " + TABLE + " (" 
 					+ C_DATE + " text, " 
-					+ C_BREAKFAST + " text, "
-					+ C_LUNCH + " text, "
-					+ C_DINNER + " text, "
-					+ C_EXTRAMEAL + " text, "
-					+ C_SQUAT + " text, "
-					+ C_DEADLIFT + " text, "
-					+ C_BENCHPRESS + " text)");			
+					+ C_HOURS + " text, "
+					+ C_WORK_CONTENTS + " text)");
 		}
 		
 		@Override
@@ -49,7 +39,7 @@ public class Contents {
 	
 	private final DbHelper dbHelper;
 	
-	public Contents(Context context) {
+	public WorkContents(Context context) {
 		this.dbHelper = new DbHelper(context);
 	}
 	
@@ -64,7 +54,7 @@ public class Contents {
 		db.close();
 	}
 
-	public Cursor getMeals() {
+	public Cursor getData() {
 		SQLiteDatabase db = this.dbHelper.getReadableDatabase();
 		
 		return db.query(TABLE, null, null, null, null, null, GET_ALL_ORDER_BY);

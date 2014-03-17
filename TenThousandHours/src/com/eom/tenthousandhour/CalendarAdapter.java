@@ -116,7 +116,7 @@ public class CalendarAdapter extends BaseAdapter
 		
 		TenKApplication applicationObject = (TenKApplication)mContext.getApplicationContext();
 		
-		Map<Calendar, DailyRecord> mapData = applicationObject.getRecords();
+		Map<Calendar, DailyEffort> mapData = applicationObject.getRecords();
 		
 		if(convertView == null || convertView.getHeight() == 0)
 		{

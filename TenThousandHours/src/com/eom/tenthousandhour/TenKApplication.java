@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.database.Cursor;
 import android.util.Log;
@@ -14,11 +15,11 @@ import android.util.Log;
 public class TenKApplication extends Application{
 	
 	Calendar date;
-	DailyRecord dailyRecord;
+	DailyEffort dailyEffort;
 		
 	int selectedMonth;
 	
-	Map<Calendar, DailyRecord> dailyRecords;
+	Map<Calendar, DailyEffort> dailyEfforts;
 	
 	int getSelectedMonth()
 	{
@@ -32,29 +33,31 @@ public class TenKApplication extends Application{
 	
 	@Override
 	public void onCreate() {
-		dailyRecord = new DailyRecord();
-		dailyRecords = new HashMap<Calendar, DailyRecord>();
+		dailyEffort = new DailyEffort();
+		dailyEfforts = new HashMap<Calendar, DailyEffort>();
 		Calendar now = Calendar.getInstance();
-		selectedMonth = now.getTime().getMonth();
+//		selectedMonth = now.getTime().getMonth();
+		selectedMonth = now.get(Calendar.MONTH);
 		
 		getDataFromDBToMap();
 	}
 
+	@SuppressLint("SimpleDateFormat")
 	private void getDataFromDBToMap() {
-		Contents foodData = new Contents(this);
+		WorkContents data = new WorkContents(this);
 
 		try {				
-			Cursor cursor = foodData.getMeals();
+			Cursor cursor = data.getData();
 			
 			try {
 
 				while(cursor.moveToNext()) {
 					Calendar date = new GregorianCalendar();
-					DailyRecord dailyRecord = new DailyRecord();
+					DailyEffort dailyEffort = new DailyEffort();
 
 					String dateStr;
 					
-					dateStr = cursor.getString(cursor.getColumnIndex(Contents.C_DATE)); 
+					dateStr = cursor.getString(cursor.getColumnIndex(WorkContents.C_DATE)); 
 								         
 			        try
 			        {
@@ -70,15 +73,10 @@ public class TenKApplication extends Application{
 			       
 			    
 			        
-					dailyRecord.breakfast = cursor.getString(cursor.getColumnIndex(Contents.C_BREAKFAST));
-					dailyRecord.lunch = cursor.getString(cursor.getColumnIndex(Contents.C_LUNCH));
-					dailyRecord.dinner = cursor.getString(cursor.getColumnIndex(Contents.C_DINNER));
-					dailyRecord.extraMeal = cursor.getString(cursor.getColumnIndex(Contents.C_EXTRAMEAL));
-					dailyRecord.squat = cursor.getString(cursor.getColumnIndex(Contents.C_SQUAT));
-					dailyRecord.deadLift = cursor.getString(cursor.getColumnIndex(Contents.C_DEADLIFT));
-					dailyRecord.benchPress = cursor.getString(cursor.getColumnIndex(Contents.C_BENCHPRESS));
+			        dailyEffort.hoursDevoted = cursor.getString(cursor.getColumnIndex(WorkContents.C_HOURS));
+			        dailyEffort.workContents = cursor.getString(cursor.getColumnIndex(WorkContents.C_WORK_CONTENTS));
 					
-					dailyRecords.put(date, dailyRecord);
+					dailyEfforts.put(date, dailyEffort);
 
 					
 				}
@@ -87,11 +85,11 @@ public class TenKApplication extends Application{
 			}
 			
 		} finally {		
-			foodData.close();
+			data.close();
 		}
 	}
 	
-	public Map<Calendar, DailyRecord> getRecords() {
-		return dailyRecords;
+	public Map<Calendar, DailyEffort> getRecords() {
+		return dailyEfforts;
 	}
 }
