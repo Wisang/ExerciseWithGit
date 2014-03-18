@@ -27,7 +27,7 @@ public class Main extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		Intent i = new Intent(this, InputEfforts.class);
+		Intent i = new Intent(this, GVCalendarActivity.class);
 		startActivity(i);
 	}
 }

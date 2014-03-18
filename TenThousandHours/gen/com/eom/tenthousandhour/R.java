@@ -21,20 +21,47 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int bg_day=0x7f020000;
+        public static final int globe=0x7f020001;
+        public static final int gridview_selector=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f080006;
-        public static final int getDistanceBtn=0x7f080002;
-        public static final int inputContents=0x7f080001;
-        public static final int inputHour=0x7f080000;
-        public static final int remainingDistanceText=0x7f080003;
-        public static final int showContents=0x7f080004;
-        public static final int updateBtn=0x7f080005;
+        public static final int action_settings=0x7f08001a;
+        public static final int breakfastContentsButton=0x7f080012;
+        public static final int contentsSummary=0x7f080001;
+        public static final int daily_picture=0x7f080006;
+        public static final int daySummary=0x7f080010;
+        public static final int day_cell_ll_background=0x7f080005;
+        public static final int day_cell_tv_day=0x7f080007;
+        public static final int dinnerContentsButton=0x7f080016;
+        public static final int dinnerMealsRetrieval=0x7f080017;
+        public static final int extraMealsContentsButton=0x7f080018;
+        public static final int extraMealsRetrieval=0x7f080019;
+        public static final int getDistanceBtn=0x7f08000e;
+        public static final int gv_calendar_activity_b_last=0x7f08000a;
+        public static final int gv_calendar_activity_b_next=0x7f08000b;
+        public static final int gv_calendar_activity_gv_calendar=0x7f080009;
+        public static final int gv_calendar_activity_tv_title=0x7f080008;
+        public static final int inputContents=0x7f08000d;
+        public static final int inputHour=0x7f08000c;
+        public static final int lunchContentsButton=0x7f080014;
+        public static final int lunchMealsRetrieval=0x7f080015;
+        public static final int modifyContentsButton=0x7f080002;
+        public static final int morningMealsRetrieval=0x7f080013;
+        public static final int ratingBar1=0x7f080000;
+        public static final int remainingDistanceText=0x7f08000f;
+        public static final int stillShotButton=0x7f080003;
+        public static final int updateBtn=0x7f080011;
+        public static final int videoRecordingButton=0x7f080004;
     }
     public static final class layout {
-        public static final int input=0x7f030000;
-        public static final int main=0x7f030001;
+        public static final int daily_summary=0x7f030000;
+        public static final int day=0x7f030001;
+        public static final int gv_calendar_activity=0x7f030002;
+        public static final int input=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int meal_daily=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f070000;
