@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DbOpenHelper {
 	private static final String DATABASE_NAME = "efforts.db";
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 4;
 
 //	private DatabaseHelper mDBHelper;
 	private Context mCtx;
