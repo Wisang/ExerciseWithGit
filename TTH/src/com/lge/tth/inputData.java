@@ -57,8 +57,9 @@ public class inputData extends Activity implements OnClickListener{
 		Cursor cursor = mDb.getData();
 		cursor.moveToFirst();  
 		
-		daySummary.setText(cursor.getString(3));
-		
+		while(cursor.moveToNext() && "2014.3.19".equals(cursor.getString(1)))
+			daySummary.setText(cursor.getString(3));
+				
 		mDb.close();
 	}
 
