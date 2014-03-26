@@ -37,6 +37,13 @@ public class InputData extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.input_data);
 		inflateGUI();
+		
+		mDb = new DbOpenHelper(this);
+		Cursor cursor = mDb.getData();
+		cursor.moveToFirst();  
+		
+		while(cursor.moveToNext() && "2014.3.19".equals(cursor.getString(1)))
+			daySummary.setText(cursor.getString(3));
 	}
 
 	@Override
@@ -44,7 +51,6 @@ public class InputData extends Activity implements OnClickListener{
 		StringBuffer contents = fillContents();
 //		daySummary.setText(contents);
 		
-		mDb = new DbOpenHelper(this);
 //        mDb.open();
          
         ContentValues values = new ContentValues();
@@ -53,13 +59,6 @@ public class InputData extends Activity implements OnClickListener{
         values.put(CreateDb.WORKS, inputWork.getText().toString());
 
         mDb.insert(values);
-		
-		Cursor cursor = mDb.getData();
-		cursor.moveToFirst();  
-		
-		while(cursor.moveToNext() && "2014.3.19".equals(cursor.getString(1)))
-			daySummary.setText(cursor.getString(3));
-				
 		mDb.close();
 	}
 

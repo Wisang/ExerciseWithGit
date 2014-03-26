@@ -48,7 +48,7 @@ public class TenKApplication extends Application{
 
 	@SuppressLint("SimpleDateFormat")
 	private void getDataFromDBToMap() {
-		DbOpenHelper workDb = new DbOpenHelper(this); 
+		DbOpenHelper workDb = new DbOpenHelper(this);
 		
 		try {				
 			Cursor cursor = workDb.getData();

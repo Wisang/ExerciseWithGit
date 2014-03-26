@@ -8,6 +8,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Main" >
+    
+    <TextView
+        android:id="@+id/remainingDistanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+    
+    <TextView
+        android:id="@+id/daySummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/inputContents"
+            android:text="@string/inputWork"
             android:textSize="20sp" />
 
         <EditText
@@ -56,18 +68,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/checkDistanceBtnCaption"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/remainingDistanceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
-    
-    <TextView
-        android:id="@+id/daySummary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textSize="20sp" />
 
 </LinearLayout>

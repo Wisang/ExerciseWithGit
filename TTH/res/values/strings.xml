@@ -10,6 +10,6 @@
     
     <string name="checkDistanceBtnCaption">Get Distance to Mastery</string>
     <string name="inputRequest">input today\'s effort in hours</string>
-    <string name="inputContents">input what you have done today</string>
+    <string name="inputWork">input what you have done today</string>
 
 </resources>
