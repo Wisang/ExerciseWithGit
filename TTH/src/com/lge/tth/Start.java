@@ -29,7 +29,7 @@ public class Start extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		Intent i = new Intent(this, inputData.class);
+		Intent i = new Intent(this, InputData.class);
 		startActivity(i);
 	}
 

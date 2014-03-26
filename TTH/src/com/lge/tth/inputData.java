@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class inputData extends Activity implements OnClickListener{
+public class InputData extends Activity implements OnClickListener{
 	EditText inputHour;
 	EditText inputWork;
 	
