@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.eom.pedometer.MainActivity"
+    tools:ignore="MergeRootFrame" >
+    
+    <TextView android:textColor="@android:color/black"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textSize="30sp"
+              android:text="Step count since reboot:"/>
+    <TextView android:id="@+id/count"
+              android:textSize="36sp"
+              android:textColor="@android:color/black"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+    
+</LinearLayout>
+

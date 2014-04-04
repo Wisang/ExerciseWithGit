@@ -43,7 +43,7 @@ public class InputData extends Activity implements OnClickListener{
 		cursor.moveToFirst();  
 		
 		while(cursor.moveToNext() && "2014.3.19".equals(cursor.getString(1)))
-			daySummary.setText(cursor.getString(3));
+			daySummary.setText(cursor.getString(1) + cursor.getString(3));
 	}
 
 	@Override
